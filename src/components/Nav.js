@@ -6,7 +6,7 @@ class Nav extends Component {
         return (
             <div className='navbar' >
                 <Link to='/'>Home</Link>
-                <Link to='/css1'>CSS1</Link>
+                <Link to='/css'>CSS</Link>
             </div>
         );
     }
