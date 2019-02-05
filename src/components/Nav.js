@@ -7,6 +7,7 @@ class Nav extends Component {
             <div className='navbar' >
                 <Link to='/'>Home</Link>
                 <Link to='/css'>CSS</Link>
+                <Link to='/react'>React</Link>
             </div>
         );
     }

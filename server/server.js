@@ -19,4 +19,9 @@ massive(CONNECTION_STRING)
 
 app.use(express.json()) 
 
+app.get('/api/messages', ctrl.read)
+app.post('/api/messages', ctrl.create)
+app.put('/api/messages/:id', ctrl.update)
+app.delete('/api/messages/:id', ctrl.delete)
+
 app.listen(SERVER_PORT, () => console.log(`Server listening on port: ${SERVER_PORT}`)) 

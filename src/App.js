@@ -4,6 +4,8 @@ import './App.css';
 import Nav from './components/Nav'
 import {HashRouter} from 'react-router-dom'
 import routes from './routes'
+import Messages from './components/Messages'
+
 import './reset.css'
 
 
@@ -14,6 +16,9 @@ class App extends Component {
         <div className="App">
           <Nav />
           {routes}
+          <div className="border">
+            <Messages />
+          </div>
         </div>
 
       </HashRouter>
