@@ -20,7 +20,7 @@ massive(CONNECTION_STRING)
 app.use(express.json()) 
 
 app.get('/api/messages', ctrl.read)
-app.post('/api/messages', ctrl.create)
+app.post('/api/messagess', ctrl.create)
 app.put('/api/messages/:id', ctrl.update)
 app.delete('/api/messages/:id', ctrl.delete)
 

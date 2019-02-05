@@ -8,9 +8,11 @@ module.exports = {
     create: (req, res) => {
         messages.push(req.body.input)
         res.status(200).send(messages)
+        console.log(messages)
     },
     read: (req, res) => {
         res.status(200).send(messages)
+        console.log(messages)
     },
     delete: (req, res) => {
         for(let i=0; i < messages.length; i++){

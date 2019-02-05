@@ -23,7 +23,7 @@ class Messages extends Component {
     }
 
     addMessage() {
-        axios.post('/api/messages', {input: this.state.input} )
+        axios.post('/api/messagess', {input: this.state.input} )
         .then(res => {
             this.setState({
                 messages: res.data
