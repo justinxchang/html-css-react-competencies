@@ -7,6 +7,7 @@ import routes from './routes'
 import Messages from './components/Messages'
 
 import './reset.css'
+import StarWars from './components/StarWars';
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           <div className="border">
             <Messages />
           </div>
+          <StarWars />
         </div>
 
       </HashRouter>

@@ -8,6 +8,6 @@ export default (
     <Switch>
         <Route component={Home} exact path='/' />
         <Route component={CSS} path='/css' />
-        <Route component={ReactPage} path='/react' />
+        {/* <Route component={ReactPage} path='/react' /> */}
     </Switch>
 )

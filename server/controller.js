@@ -4,6 +4,8 @@ let messages = [
     'Text message 3',
 ]
 
+let starWars = []
+
 module.exports = {
     create: (req, res) => {
         messages.push(req.body.input)
@@ -30,4 +32,9 @@ module.exports = {
         }
         res.status(200).send(messages)
     },
+    star: (req, res, next) => {
+        console.log(res.data)
+        starWars.push(res.data)
+        res.status(200).send(starWars)
+    }
 }

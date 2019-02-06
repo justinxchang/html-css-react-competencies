@@ -71,7 +71,7 @@ class Messages extends Component {
                 {displayedMessages}
             </div>
             <div className='input'>
-                <input class='input' type="text" placeholder="type here" 
+                <input className='input' type="text" placeholder="type here" 
                 onChange={(event) => this.setState({input: event.target.value})} value={this.state.input}/>
                 <button onClick={this.addMessage}>Submit</button>
             </div>
