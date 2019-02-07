@@ -24,8 +24,11 @@ app.use(function (req, res, next) {
   })
 
 let check = (req, res, next) => {
-    if(req.body.name === ''){
-        res.status(200).send({mes: 'please fill out all forms'})
+    console.log('search', req.body.input)
+    if(!req.body.input){
+        console.log('Please fill out all forms')
+        console.log(ctrl.messages)
+        res.status(200).send(ctrl.messages)
     } else {
         next()
     }
@@ -41,9 +44,9 @@ app.use(express.json())
 
 app.get('/api/messages', ctrl.read)
 app.post('/api/messagess', ctrl.create)
-app.put('/api/messages/:id', ctrl.update)
+app.put('/api/messages/:id', check, ctrl.update)
 app.delete('/api/messages/:id', ctrl.delete)
 
-app.get('https://swapi.co/api/people/1', ctrl.star)
+app.post(`https://swapi.co/api/people`, ctrl.star)
 
 app.listen(SERVER_PORT, () => console.log(`Server listening on port: ${SERVER_PORT}`)) 

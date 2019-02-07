@@ -7,24 +7,34 @@ class StarWars extends Component {
         input: ''
     }
 
-    getStars(){
-        axios.get('https://swapi.co/api/people/1')
+    getStars(input){
+        console.log(input)
+        axios.post(`https://swapi.co/api/people?search=${input}`)
         .then(res => this.setState({post: res.data}))
         console.log(this.state.post)
     }
 
     
     render() {
+        if (this.state.post.results) {
+            return (
+                <div>
+                    <input type='text' onChange={(event) => this.setState({input: event.target.value})}></input> 
+                    <button onClick={() => {this.getStars(this.state.input)}}>Star Wars</button> 
+                    <h3>Character Name: {this.state.post.results[0].name}</h3>
+                    <p>height: {this.state.post.results[0].height}</p>
+                    <p>mass: {this.state.post.results[0].mass}</p>
+                    <p>gender: {this.state.post.results[0].gender}</p>
+                    <p>birth_year: {this.state.post.results[0].birth_year}</p>
+                </div>
+            )
+        }
+
+
         return (
             <div>
                <input type='text' onChange={(event) => this.setState({input: event.target.value})}></input> 
-               <button onClick={() => {this.getStars()}}>Star Wars</button> 
-
-               <h3>Character Name: {this.state.post.name}</h3>
-               <p>height: {this.state.post.height}</p>
-               <p>mass: {this.state.post.mass}</p>
-               <p>gender: {this.state.post.gender}</p>
-               <p>birth_year: {this.state.post.birth_year}</p>
+               <button onClick={() => {this.getStars(this.state.input)}}>Star Wars</button> 
 
             </div>
         );

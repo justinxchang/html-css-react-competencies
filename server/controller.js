@@ -6,6 +6,14 @@ let messages = [
 
 let starWars = []
 
+let check = (req, res, next) => {
+    if(req.body.name === ''){
+        res.status(200).send({mes: 'please fill out all forms'})
+    } else {
+        next()
+    }
+}
+
 module.exports = {
     create: (req, res) => {
         messages.push(req.body.input)
@@ -31,9 +39,13 @@ module.exports = {
             }
         }
         res.status(200).send(messages)
+        console.log(messages)
     },
-    star: (req, res, next) => {
-        console.log(res.data)
+    star: (req, res) => {
+        console.log('search', req.query.search)
+        let query = req.query.search
+        console.log('queary', query)
+        console.log('res', res.data)
         starWars.push(res.data)
         res.status(200).send(starWars)
     }
